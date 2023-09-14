@@ -17,6 +17,7 @@ function App() {
   useEffect(()=> {
     const fetchPosts = async()=> {
       const posts = await api.fetchPosts();
+      console.log(posts)
       setPosts(posts);
     };
     fetchPosts();
