@@ -7,6 +7,8 @@ import Post from './Post';
 import AboutUs from './AboutUs';
 
 import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
+import ContactUsUs from './ContactUs';
+import ContactUs from './ContactUs';
 
 function App() {
   const [auth, setAuth] = useState({});
@@ -79,6 +81,7 @@ function App() {
             <AuthForm submit={ register } txt='Register'/>
             <AuthForm submit={ login } txt='Login'/>
             <Link to='/about_us'>About Us</Link>
+            <Link to ='/contact_us'>Contact Us</Link>
           </>
         )
       }
@@ -86,6 +89,7 @@ function App() {
       <Routes>
         <Route path='/posts/:id' element={ <Post posts={ posts } auth={ auth }/>} />
         <Route path='/about_us' element={ <AboutUs />} />
+        <Route path='/contact_us' element={ <ContactUs />} />
       </Routes>
     </>
   )
