@@ -5,9 +5,7 @@ import CreatePost from './CreatePost';
 import Posts from './Posts';
 import Post from './Post';
 import AboutUs from './AboutUs';
-
 import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
-import ContactUsUs from './ContactUs';
 import ContactUs from './ContactUs';
 
 function App() {
@@ -85,6 +83,7 @@ function App() {
           </>
         )
       }
+
       <Posts posts={ posts } auth={ auth }/>
       <Routes>
         <Route path='/posts/:id' element={ <Post posts={ posts } auth={ auth }/>} />
