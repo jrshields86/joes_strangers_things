@@ -17,7 +17,6 @@ function App() {
   useEffect(()=> {
     const fetchPosts = async()=> {
       const posts = await api.fetchPosts();
-      console.log(posts)
       setPosts(posts);
     };
     fetchPosts();
@@ -56,9 +55,11 @@ function App() {
     setPosts([...posts, post]);
     navigate(`/posts/${post._id}`);
   };
-  const destroyPost = (post)=> {
-    console.log(post)
-    
+  
+  const destroyPost = async(post)=> {
+    post = await api.destroyPost(post);
+    setPosts([...posts]);
+    navigate()
   };
 
 
@@ -74,6 +75,7 @@ function App() {
             </h1>
             <Link to='/posts/create'>Create A Post</Link>
             <Link to='/about_us'>About Us</Link>
+            <Link to ='/contact_us'>Contact Us</Link>
             <Routes>
               <Route path='/posts/create' element={ <CreatePost createPost={ createPost } />} />
             </Routes>
