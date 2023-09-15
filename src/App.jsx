@@ -57,9 +57,9 @@ function App() {
   };
   
   const destroyPost = async(post)=> {
-    post = await api.destroyPost(post);
-    setPosts([...posts]);
-    navigate()
+    await api.destroyPost(post);
+    setPosts(posts.filter(item=> item._id !== post._id));
+    navigate(`/posts/`)
   };
 
 
