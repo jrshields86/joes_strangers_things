@@ -73,6 +73,7 @@ function App() {
               Welcome { auth.username }
               <button onClick={ logout }>Logout</button>
             </h1>
+<h3>You have posted: ({posts.filter((post)=> post.author.username === auth.username).length})</h3>
             <Link to='/posts/create'>Create A Post</Link>
             <Link to='/about_us'>About Us</Link>
             <Link to ='/contact_us'>Contact Us</Link>
