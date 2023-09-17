@@ -66,6 +66,9 @@ const destroyPost = async(post)=> {
     }
   );
   return response;
+};
+
+const updatePost = async(post)=> {
   
 };
 
@@ -86,7 +89,8 @@ const api = {
   loginWithToken,
   fetchPosts,
   createPost,
-  destroyPost
+  destroyPost,
+  // updatePost
 };
 
 export default api;

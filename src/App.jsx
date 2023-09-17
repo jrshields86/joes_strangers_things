@@ -62,6 +62,10 @@ function App() {
     navigate(`/posts/`)
   };
 
+  const updatePost = async(post)=> {
+    console.log(post)
+  };
+
 
   return (
     <>
@@ -93,7 +97,7 @@ function App() {
 
       <Posts posts={ posts } auth={ auth }/>
       <Routes>
-        <Route path='/posts/:id' element={ <Post destroyPost={ destroyPost } posts={ posts } auth={ auth }/>} />
+        <Route path='/posts/:id' element={ <Post updatePost={ updatePost } destroyPost={ destroyPost } posts={ posts } auth={ auth }/>} />
         <Route path='/about_us' element={ <AboutUs />} />
         <Route path='/contact_us' element={ <ContactUs />} />
       </Routes>
