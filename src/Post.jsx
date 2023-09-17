@@ -35,7 +35,7 @@ const Post = ({ posts, auth, destroyPost, updatePost })=> {
       <p>{ post.description }</p>
       <form onSubmit={ save }>
         <input value={ description } onChange={ ev => setDescription(ev.target.value)}/>
-        {auth._id === post.author._id ? <button disabled={ post.description === description }>Update</button>: ''}  
+        <Link>{auth._id === post.author._id ? <button disabled={ post.description === description }>Update</button>: ''}</Link>  
       </form>
       { auth._id === post.author._id ? <button onClick={ ()=> destroyPost(post)}>x</button>: ''}
     </div>
