@@ -52,6 +52,7 @@ const createPost = async(post)=> {
       }
     }
   );
+  console.log(response)
   return response.data.data.post;
 };
 
@@ -65,11 +66,23 @@ const destroyPost = async(post)=> {
       }
     }
   );
+  console.log(response)
   return response;
 };
 
-const updatePost = async(post)=> {
-  
+const updatePost = async( post )=> {
+  const token = window.localStorage.getItem('token');
+  const response = await axios.patch(
+    `${BASE_URL}/posts/${post._id}`,
+    { post },
+    {
+      headers: {
+        authorization: `Bearer ${ token }`
+      }
+    }
+  );
+  console.log(response)
+  // return response.data.data.post;
 };
 
 const login = async(credentials)=> {
@@ -90,7 +103,7 @@ const api = {
   fetchPosts,
   createPost,
   destroyPost,
-  // updatePost
+  updatePost
 };
 
 export default api;
