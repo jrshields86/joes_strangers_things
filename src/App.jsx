@@ -63,10 +63,9 @@ function App() {
   };
 
   const updatePost = async(post)=> {
+    const response = await api.updatePost(post);
     console.log(post)
-    // await api.destroyPost(post);
-    // setPosts(posts.filter(item=> item._id !== post._id));
-    // navigate(`/posts/`)
+    
   };
 
   
