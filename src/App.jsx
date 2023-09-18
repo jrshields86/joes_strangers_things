@@ -51,7 +51,6 @@ function App() {
   };
 
   const createPost = async(post)=> {
-    console.log(post)
     post = await api.createPost(post);
     setPosts([...posts, post]);
     navigate(`/posts/${post._id}`);
@@ -64,9 +63,13 @@ function App() {
   };
 
   const updatePost = async(post)=> {
-    // post = await api.updatePost(post);
     console.log(post)
+    // await api.destroyPost(post);
+    // setPosts(posts.filter(item=> item._id !== post._id));
+    // navigate(`/posts/`)
   };
+
+  
 
 
   return (
@@ -79,7 +82,7 @@ function App() {
               Welcome { auth.username }
               <button onClick={ logout }>Logout</button>
             </h1>
-            <h3>You have posted: ({posts.filter((post)=> post.author.username === auth.username).length})</h3>
+<h3>You have posted: ({posts.filter((post)=> post.author.username === auth.username).length})</h3>
             <Link to='/posts/create'>Create A Post</Link>
             <Link to='/about_us'>About Us</Link>
             <Link to ='/contact_us'>Contact Us</Link>

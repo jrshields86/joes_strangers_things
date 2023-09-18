@@ -1,41 +1,37 @@
 import { useState, useEffect } from 'react'
 import App from './App';
-
 import { useParams, Link } from 'react-router-dom';
 
 const Post = ({ posts, auth, destroyPost, updatePost })=> {
-  console.log(updatePost)
   const { id } = useParams();
-  console.log(id)
   const post = posts.find(post => post._id === id);
-  const [description, setDescription] = useState('');
+  const [deets, setDeets] = useState('');
 
   useEffect(()=> {
     const post = posts.find(post => post._id === id);
-    
     if(post){
-      setDescription(post.description)
+      setDeets(post.description)
     }
+
   }, [posts, id]);
 
   if(!post){
     return null;
   }
 
-  const save = (ev) => {
-    ev.preventDefault();
-    const post = { description };
-    console.log(post)
-    updatePost(post);
-  };
+const save = (ev)=> {
+  ev.preventDefault();
+  const post = { id, deets}
+  updatePost(post);
+};
 
   return (
     <div>
       <h1>{ post.title }</h1>
       <p>{ post.description }</p>
       <form onSubmit={ save }>
-        <input value={ description } onChange={ ev => setDescription(ev.target.value)}/>
-        <Link>{auth._id === post.author._id ? <button disabled={ post.description === description }>Update</button>: ''}</Link>  
+        <input value={ deets } onChange={ev => setDeets(ev.target.value)}/>
+        <button disabled={ post.description === deets }>Update</button>
       </form>
       { auth._id === post.author._id ? <button onClick={ ()=> destroyPost(post)}>x</button>: ''}
     </div>

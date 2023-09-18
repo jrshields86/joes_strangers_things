@@ -42,6 +42,7 @@ const fetchPosts = async()=> {
 };
 
 const createPost = async(post)=> {
+  console.log(post)
   const token = window.localStorage.getItem('token');
   const response = await axios.post(
     `${BASE_URL}/posts`,
@@ -57,6 +58,7 @@ const createPost = async(post)=> {
 };
 
 const destroyPost = async(post)=> {
+  console.log(post)
   const token = window.localStorage.getItem('token');
   const response = await axios.delete(
     `${BASE_URL}/posts/${post._id}`,
@@ -70,20 +72,10 @@ const destroyPost = async(post)=> {
   return response;
 };
 
-const updatePost = async( post )=> {
-  const token = window.localStorage.getItem('token');
-  const response = await axios.patch(
-    `${BASE_URL}/posts/${post._id}`,
-    { post },
-    {
-      headers: {
-        authorization: `Bearer ${ token }`
-      }
-    }
-  );
-  console.log(response)
-  // return response.data.data.post;
-};
+// const updatePost = async( post )=> {
+//   console.log(post)
+  
+// };
 
 const login = async(credentials)=> {
   const response = await axios.post(
@@ -103,7 +95,7 @@ const api = {
   fetchPosts,
   createPost,
   destroyPost,
-  updatePost
+  
 };
 
 export default api;
