@@ -84,10 +84,12 @@ function App() {
             </h1>
             <h3>You have posted: ({posts.filter((post)=> post.author.username === auth.username).length})</h3>
             <div>
+              <h3>
                 <Link to='/posts/create'>Create A Post</Link>
                 <Link to='/about_us'>About Us</Link>
                 <Link to='/contact_us'>Contact Us</Link>
                 <Link to='/most_expensive'>Most Expensive</Link>
+                </h3>
             </div>
             <Routes>
               <Route path='/posts/create' element={ <CreatePost createPost={ createPost } />} />
@@ -98,9 +100,11 @@ function App() {
             <AuthForm submit={ register } txt='Register'/>
             <AuthForm submit={ login } txt='Login'/>
             <div className='link'>
+              <h3>
             <Link to='/about_us'>About Us</Link>
             <Link to ='/contact_us'>Contact Us</Link>
             <Link to='/most_expensive'>Most Expensive</Link>
+            </h3>
             </div>
           </>
         )
