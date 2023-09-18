@@ -1,6 +1,6 @@
 const AboutUs = ()=> {
   return (
-    <div>
+    <div className="about">
       <h3>About Us!</h3>
       <p>We are an online marketplace where you can buy and 
         sell items. Please create a username and password 

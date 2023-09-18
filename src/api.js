@@ -61,7 +61,7 @@ const destroyPost = async(post)=> {
   console.log(post)
   const token = window.localStorage.getItem('token');
   const response = await axios.delete(
-    `${BASE_URL}/posts/${post._id}`, post.description,
+    `${BASE_URL}/posts/${post._id}`,
     {
       headers: {
         authorization: `Bearer ${ token }`

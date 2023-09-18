@@ -5,8 +5,43 @@ form {
 
 form > * {
   margin: 0.5rem;
+  border: 2px solid black;
+  
 }
 
 .mine {
   font-weight: bold;
+}
+
+nav {
+  display: flex;
+}
+
+ * {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: beige;
+}
+
+h1 {
+  text-align: center;
+}
+
+form > button {
+  background-color: lightgray;
+  color: black;
+}
+
+form > input {
+  background-color: white;
+}
+
+.contact {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+}
+.most {
+  text-align: center;
 }

@@ -21,7 +21,7 @@ const Post = ({ posts, auth, destroyPost, updatePost })=> {
 
 const save = (ev)=> {
   ev.preventDefault();
-  const post = { id, deets}
+  const post = {deets}
   updatePost(post);
 };
 

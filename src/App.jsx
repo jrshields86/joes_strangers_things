@@ -7,6 +7,7 @@ import Post from './Post';
 import AboutUs from './AboutUs';
 import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
 import ContactUs from './ContactUs';
+import MostExpensive from './MostExpensive';
 
 function App() {
   const [auth, setAuth] = useState({});
@@ -81,10 +82,13 @@ function App() {
               Welcome { auth.username }
               <button onClick={ logout }>Logout</button>
             </h1>
-<h3>You have posted: ({posts.filter((post)=> post.author.username === auth.username).length})</h3>
-            <Link to='/posts/create'>Create A Post</Link>
-            <Link to='/about_us'>About Us</Link>
-            <Link to ='/contact_us'>Contact Us</Link>
+            <h3>You have posted: ({posts.filter((post)=> post.author.username === auth.username).length})</h3>
+            <div>
+                <Link to='/posts/create'>Create A Post</Link>
+                <Link to='/about_us'>About Us</Link>
+                <Link to='/contact_us'>Contact Us</Link>
+                <Link to='/most_expensive'>Most Expensive</Link>
+            </div>
             <Routes>
               <Route path='/posts/create' element={ <CreatePost createPost={ createPost } />} />
             </Routes>
@@ -93,8 +97,11 @@ function App() {
           <>
             <AuthForm submit={ register } txt='Register'/>
             <AuthForm submit={ login } txt='Login'/>
+            <div className='link'>
             <Link to='/about_us'>About Us</Link>
             <Link to ='/contact_us'>Contact Us</Link>
+            <Link to='/most_expensive'>Most Expensive</Link>
+            </div>
           </>
         )
       }
@@ -104,6 +111,7 @@ function App() {
         <Route path='/posts/:id' element={ <Post updatePost={ updatePost } destroyPost={ destroyPost } posts={ posts } auth={ auth }/>} />
         <Route path='/about_us' element={ <AboutUs />} />
         <Route path='/contact_us' element={ <ContactUs />} />
+        <Route path='/most_expensive' element={ <MostExpensive />} />
       </Routes>
     </>
   )

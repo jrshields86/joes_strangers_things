@@ -6,11 +6,10 @@ const Posts = ({ posts, auth })=> {
     <ul>
       {
         posts.map( post => {
-          const price = post.price*1
-          // console.log(price)
           return (
             <li key={ post._id } className={ post.author._id === auth._id ? 'mine': ''}>
-              <Link to={`/posts/${post._id}`}>{ post.title } -- { post.author.username } -- { post.location }</Link> ${ post.price }
+              <Link to={`/posts/${post._id}`}>{ post.title } -- { post.author.username } -- { post.location }</Link>
+               ${ (post.price*1).toFixed(2) === NaN ? toString(NaN): (post.price*1).toFixed(2) }
             </li>
           );
         })
